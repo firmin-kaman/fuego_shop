@@ -26,9 +26,23 @@ import Img12 from "../../Images/shirts-1920.jpg";
 import Img13 from "../../Images/fruit-1920.jpg";
 import Img14 from "../../Images/architecture-1920.jpg";
 
+import { useNavigate } from 'react-router-dom';
+
 SwiperCore.use([Pagination, Navigation, Autoplay, EffectFade]);
 
 const Slider: React.FC = () => {
+
+  //--- Navigation Button Start ---//
+  const navigate = useNavigate();
+  
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+  
+  const handleButtonClick = (path: string) => {
+    handleNavigation(path);
+  };
+  //--- Navigation Button End ---//
 
 
    return (
@@ -55,7 +69,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -67,7 +81,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -79,7 +93,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -91,7 +105,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -103,7 +117,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -115,7 +129,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -127,7 +141,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -139,7 +153,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -151,7 +165,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -163,7 +177,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -175,7 +189,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -187,7 +201,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -199,7 +213,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>
@@ -211,7 +225,7 @@ const Slider: React.FC = () => {
                     <h1 className='shop-name-2'>TED BISHOP</h1>
                   </div>
                   <button className='shop-btn'>
-                    <span>Shop Now</span>
+                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
                   </button>
                 </div>
               </SwiperSlide>

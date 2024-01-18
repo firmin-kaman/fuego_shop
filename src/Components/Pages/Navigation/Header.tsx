@@ -18,6 +18,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import "../../Css/Header.css"
 
 import { useNavigate } from 'react-router-dom';
@@ -117,8 +120,9 @@ const Header: React.FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <ManageAccountsIcon /></Badge>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <SettingsIcon /></Badge> Settings</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <LogoutIcon /></Badge> Log out</MenuItem>
     </Menu>
   );
 
@@ -169,7 +173,7 @@ const Header: React.FC = () => {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <p>Edit profile</p>
       </MenuItem>
     </Menu>
   );
@@ -230,15 +234,6 @@ const Header: React.FC = () => {
             <IconButton size="large" aria-label="show 5 new mails" color="inherit">
               <Badge badgeContent={5} color="error">
                 <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 15 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={15} color="error">
-                <NotificationsIcon />
               </Badge>
             </IconButton>
             <IconButton
