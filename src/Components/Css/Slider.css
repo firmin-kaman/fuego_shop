@@ -1,0 +1,323 @@
+#app {
+    height: 100%;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 93.5vh;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Start Animation*/
+
+.mySwiper {
+    width: 100%;
+    height: 93.5vh;
+}
+
+.mySwiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Personnalisation de l'effet de fondu */
+.mySwiper .swiper-slide {
+    opacity: 0;
+    /* les slides sont initialement transparentes */
+    transition: opacity 1s ease-in-out;
+    /* ajustez la durée et le timing selon vos préférences */
+}
+
+.mySwiper .swiper-slide-active {
+    opacity: 1;
+    /* la slide active est pleinement visible */
+}
+/* End Animation*/
+
+
+.Slider {
+    position: relative;
+}
+
+/*** Text Animation ***/
+
+.Text-animed-2,
+.Text-animed-3,
+.Text-animed-4,
+.Text-animed-5,
+.Text-animed-6,
+.Text-animed-7,
+.Text-animed-8,
+.Text-animed-9,
+.Text-animed-10,
+.Text-animed-11,
+.Text-animed-12,
+.Text-animed-13,
+.Text-animed-14 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    /* Assure que le bouton est au-dessus des images */
+}
+
+.Text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.Text-container-sub {
+    display: flex;
+    flex-direction: row;
+}
+/*** Text Animation ***/
+
+
+/***** Gyrophare Start *****/
+.Text-animed-1,
+.Text-animed-2,
+.Text-animed-3,
+.Text-animed-4,
+.Text-animed-5,
+.Text-animed-6,
+.Text-animed-7,
+.Text-animed-8,
+.Text-animed-9,
+.Text-animed-10,
+.Text-animed-11,
+.Text-animed-12,
+.Text-animed-13,
+.Text-animed-14 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.shop-name-1,
+.shop-name-2 {
+    display: inline-block;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    animation: blackAndWhiteBlink 4s infinite;
+}
+
+.shop-name-1::before,
+.shop-name-2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    animation: gyrophare 2s infinite, blink 2s infinite;
+}
+
+.shop-name-1{
+    padding-right: 15px;
+}
+
+@keyframes gyrophare {
+
+    0%,
+    100% {
+        transform: scaleX(0);
+        transform-origin: bottom right;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+@keyframes blackAndWhiteBlink {
+
+    0%,
+    75%,
+    100% {
+        filter: grayscale(100%);
+    }
+
+    50% {
+        filter: grayscale(0%);
+    }
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+/***** Gyrophare End *****/
+
+
+/***** Button Shop Start *****/
+
+.shop-btn {
+    /* Ajoutez ici le style de votre bouton, par exemple : */
+    padding: 0px 40px;
+    font-size: 16px;
+    background-color: #0d82ff;
+    color: #fff;
+    transition: all 0.2s ease;
+    border: none;
+    border-radius: 23px;
+    min-width: 16px;
+    height: 46px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    animation: shine 3s infinite ease-in-out, buttonShow 2.5s infinite ;
+    position: relative;
+}
+
+.shop-btn:hover {
+    animation: none;
+    background-color: #032447;
+    transform: scale(1.25);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+@keyframes shine {
+    0% {
+        box-shadow: 0 0 10px #186fcd;
+        /* Brillant */
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        /* Affaiblissement */
+    }
+
+    100% {
+        box-shadow: 0 0 10px #186fcd;
+        /* Retour à la brillance */
+    }
+}
+
+@keyframes buttonShow {
+
+    0%{
+        filter: brightness(65%);
+    }
+
+    25% {
+        filter: brightness(75%);
+    }
+
+    50% {
+        filter: brightness(100%);
+    }
+
+    75% {
+        filter: brightness(80%);
+    }
+
+    100% {
+        filter: brightness(65%);
+    }
+    
+}
+
+/***** Button Shop End *****/
+
+
+/***** Last Image Start *****/
+.Text-animed-14 .shop-name-1 {
+    color: #000;
+}
+
+.Text-animed-14 .shop-name-1::before {
+    background-color: #000;
+}
+
+.Text-animed-14 .shop-name-2 {
+    color: #000;
+}
+
+.Text-animed-14 .shop-name-2::before {
+    background-color: #000;
+}
+/***** Last Image End *****/
+
+.shop-name-1{
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 400;
+    /* color: #fff; */
+}
+.shop-name-2{
+    text-transform: uppercase;
+    font-size: 45px;
+    /* color: #fff; */
+}
