@@ -1,0 +1,15 @@
+
+/* Header.css */
+@media (max-width: 900px) {
+    .toolbar {
+        display: flex !important;
+    }
+    .searchBar {
+        display: none !important;
+    }
+}
+@media (min-width: 902px) {
+    .toolbar {
+        display: none !important;
+    }
+}

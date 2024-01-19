@@ -20,3 +20,11 @@ Frontend: React JS; Material UI
 RoadMap: Jira
 
 See you soon 👋😊
+
+
+A faire:
+
+- Commentaires (Notation des produits)
+- Paiement en ligne
+- Notation des produits
+- Ajouts des prduits aux favoris

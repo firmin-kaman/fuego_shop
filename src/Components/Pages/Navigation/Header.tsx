@@ -21,6 +21,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { useTheme } from '@mui/system';
+
 import "../../Css/Header.css"
 
 import { useNavigate } from 'react-router-dom';
@@ -40,6 +42,7 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
+
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -66,11 +69,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header: React.FC = () => {
-  
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
 
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -93,13 +94,22 @@ const Header: React.FC = () => {
 
   //--- Navigation Button Start ---//
   const navigate = useNavigate();
-  
+
   const handleNavigation = (path: string) => {
     navigate(path);
   };
-  
+
   const handleButtonClick = (path: string) => {
     handleNavigation(path);
+  };
+
+  const toggleFavorite = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    navigate(`/favorites`);
+  };
+  const toggleCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    navigate(`/cart`);
   };
   //--- Navigation Button End ---//
 
@@ -120,146 +130,129 @@ const Header: React.FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <ManageAccountsIcon /></Badge>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <SettingsIcon /></Badge> Settings</MenuItem>
-      <MenuItem onClick={handleMenuClose}> <Badge style={{marginRight: "05px"}}> <LogoutIcon /></Badge> Log out</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <ManageAccountsIcon /></Badge>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <SettingsIcon /></Badge> Settings</MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <LogoutIcon /></Badge> Log out</MenuItem>
     </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <FavoriteIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Edit profile</p>
-      </MenuItem>
-    </Menu>
+    <div>
+      <Menu
+        anchorEl={mobileMoreAnchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        id={mobileMenuId}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={isMobileMenuOpen}
+        onClose={handleMobileMenuClose}
+      >
+        <MenuItem>
+          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <FavoriteIcon />
+            </Badge>
+          </IconButton>
+          <p>Messages</p>
+        </MenuItem>
+        <MenuItem>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={17} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <p>Notifications</p>
+        </MenuItem>
+        <MenuItem onClick={handleProfileMenuOpen}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          <p>Edit profile</p>
+        </MenuItem>
+      </Menu>
+    </div>
   );
+
+  const theme = useTheme();
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar >
           {/* Drawer */}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
+          <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
           {/* Title */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
+          <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
             FuegoShop
           </Typography>
-          {/* SearchBar */}
-          <Search>
+          {/* SearchBar 1 ( Computer ) */}
+          <Search className='searchBar'>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
+            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} style={{ width: "100%" }} />
           </Search>
           {/* Options */}
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' }  }}>
-            <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/')}>Home</Button>
-          </Box>
-          <Divider sx={{ height: 32, m: 0.5 }}/>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }  }}>
-            <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/products')}>Products</Button>
-          </Box>
-          <Divider sx={{ height: 32, m: 0.5 }}/>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }  }}>
-            <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/cart')}>Cart</Button>
-          </Box>
+          <div style={{ display: 'flex', [theme.breakpoints.down('md')]: { display: 'none' } }}>
+            <Box sx={{ display: 'flex' }}>
+              <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/')}>Home</Button>
+              <Divider sx={{ height: 32, m: 0.5 }} />
+              <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/products')}>Products</Button>
+              <Divider sx={{ height: 32, m: 0.5 }} />
+              <Button variant="contained" sx={{ color: 'white', borderColor: 'white' }} onClick={() => handleButtonClick('/cart')}>Cart</Button>
+            </Box>
+          </div>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 5 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 5 new mails" color="inherit" onClick={toggleFavorite}>
               <Badge badgeContent={5} color="error">
                 <FavoriteIcon />
               </Badge>
             </IconButton>
-            <IconButton size="large" aria-label="show 5 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 5 new mails" color="inherit" onClick={toggleCart}>
               <Badge badgeContent={5} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
+            <IconButton size="large" edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen} color="inherit">
               <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
+            <IconButton size="large" aria-label="show more" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} color="inherit">
               <MoreIcon />
             </IconButton>
           </Box>
+        </Toolbar>
+        <Toolbar className='toolbar'>
+          {/* SearchBar 2 ( Mobile/Tablette ) */}
+          <Search style={{ width: "100%", display: "flex", flexDirection: "row-reverse"}}>
+            <SearchIconWrapper className='search-btn-1'>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} style={{ width: "100%" }} />
+          </Search>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
