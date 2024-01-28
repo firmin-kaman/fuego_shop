@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Paper, Typography, Card, CardContent, Button, Grid, Divider, InputLabel, MenuItem, FormControl, ListItemButton, ListItemIcon, ListItemText, Collapse , List} from '@mui/material';
+import { Paper, Typography, Card, CardContent, Button, Grid, InputLabel, MenuItem, FormControl, ListItemButton, ListItemIcon, ListItemText, Collapse , List, Rating} from '@mui/material';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
 import Header from '../../../Components/Pages/Navigation/Header';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -12,6 +12,8 @@ import { styled } from '@mui/system';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { Unstable_NumberInput as BaseNumberInput } from '@mui/base/Unstable_NumberInput';
+
+import Footer from '../Navigation/Footer';
 
 const ProductDetails: React.FC = () => {
     
@@ -65,6 +67,9 @@ const handleProductDetailsClick = () => {
 const handleSizeAndFitClick = () => {
   setSizeAndFitOpen(!sizeAndFitOpen);
 };
+
+// Rates Stars
+  const [value] = React.useState<number | null>(2);
 
 
   return (
@@ -136,145 +141,151 @@ const handleSizeAndFitClick = () => {
               
             </Grid>
             {/***  Deuxième moitié ***/}
-              <Grid item xs={12} md={6}>
-                <Typography variant="h5" gutterBottom>
-                  {productDetails.name}
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  {productDetails.description}
-                </Typography>
-                <Divider style={{ marginBottom: '10px' }} />
-                <Typography variant="h6" style={{display: "flex"}}>
-                  <div style={{fontWeight: "600", marginRight:"5px"}}>
-                    Prix : 
-                  </div>
-                  {productDetails.price}
-                </Typography>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h5" gutterBottom>
+                {productDetails.name}
+              </Typography>
+              {/* Stars notation */}
+              <CardContent sx={{ marginTop: "-15px", marginBottom: "5px", marginLeft: "-15px", display: "flex"  }}> 
+                <Rating name="read-only" value={value} readOnly /> 
+                <p style={{ margin: "7px" }}>250</p>
+              </CardContent>
+              {/* Price of product */}
+              <Typography variant="h6" style={{display: "flex", marginBottom: "25px", fontWeight: "600"}}>
+                {productDetails.price}
+              </Typography>
+              {/* Description of product */}
+              <Typography variant="body1" paragraph>
+                {productDetails.description}
+              </Typography>
 
-                {/* Quantité et bouton Ajouter au panier */}
-                  {/* Quantité */}
-                  <Grid item style={{display: "flex", alignItems: "center"}}>
-                    <Typography variant="body1" style={{fontWeight: "600"}}>Quantité:</Typography>
-                    <Grid item style={{marginTop: "10px", marginBottom: "10px", marginLeft:"15px"}}>
-                      <BaseNumberInput
-                        slots={{
-                          root: StyledInputRoot,
-                          input: StyledInput,
-                          incrementButton: StyledButton,
-                          decrementButton: StyledButton,
-                        }}
-                        slotProps={{
-                          incrementButton: {
-                            children: <AddIcon fontSize="small" />,
-                            className: 'increment',
-                          },
-                          decrementButton: {
-                            children: <RemoveIcon fontSize="small" />,
-                            disabled: quantity === 1,
-                            onClick: () => setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1)),
-                          },
-                        }}
-                        value={quantity}
-                        onChange={(event, value) => setQuantity(value as number)}
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item style={{marginTop: "20px", marginBottom: "10px"}}>
-                  {/* Bouton d'ajout */}
-                  <FormControl fullWidth>
-                    <InputLabel id="material-label">Votre taille</InputLabel>
-                    <Select
-                      labelId="material-label"
-                      id="taille-select"
-                      value={taille}
-                      label="Votre Taille"
-                      onChange={handleChange}
-                    >
-                      <MenuItem>32 x 34</MenuItem>
-                      <MenuItem>34 x 36</MenuItem>
-                      <MenuItem>36 x 38</MenuItem>
-                    </Select>
-                  </FormControl>
-                  </Grid>
-                  <Grid item style={{marginTop: "0px", marginBottom: "10px", display: "flex", justifyContent: "space-between"}}>
-                    <Button variant="contained" color="primary" onClick={handleAddToCart} style={{width: "87%"}}>
-                      Ajouter au panier
-                    </Button>
-                    <Button variant="contained" color="primary" onClick={handleAddToCart} style={{ width: "10%"}}>
-                      <FavoriteIcon />
-                    </Button>
-                  </Grid>
-                {/* Menu déroulant Matière et entretien */}
-                <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
-                  <ListItemButton onClick={handleMaterialClick}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Matière et entretien" />
-                    {materialOpen ?  <ExpandLess />:  <ExpandMore /> }
-                  </ListItemButton>
-                  <Collapse in={materialOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemText style={{marginLeft: "20px"}} primary="Composition:" />
-                    </List>
-                  </Collapse>
-                </Grid>
-
-                {/* Menu déroulant Détails du produit */}
-                <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
-                  <ListItemButton onClick={handleProductDetailsClick}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Détails du produit" />
-                    {productDetailsOpen ?  <ExpandLess />:  <ExpandMore /> }
-                  </ListItemButton>
-                  <Collapse in={productDetailsOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemText style={{marginLeft: "20px"}} primary="Taille:" />
-                        <ListItemText style={{marginLeft: "20px"}} primary="Motif/ Couleur:" />
-                        <ListItemText style={{marginLeft: "20px"}} primary="Informations additionnelles:" />
-                        <ListItemText style={{marginLeft: "20px"}} primary="Référence:" />
-                    </List>
-                  </Collapse>
-                </Grid>
-
-                {/* Menu déroulant Taille & coupe */}
-                <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
-                  <ListItemButton onClick={handleSizeAndFitClick}>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Taille & coupe" />
-                    {sizeAndFitOpen ?  <ExpandLess />:  <ExpandMore /> }
-                  </ListItemButton>
-                  <Collapse in={sizeAndFitOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding style={{}}>
-                        <ListItemText style={{marginLeft: "20px"}} primary="Coupe:" />
-                        <ListItemText style={{marginLeft: "20px"}} primary="Silhouette:" />
-                        <ListItemText style={{marginLeft: "20px"}} primary="Longueur:" />
-                    </List>
-                  </Collapse>
-                </Grid>
-                {/* Entreprise de production */}
-                <Grid item style={{marginTop: "20px", marginBottom: "10px", display: "flex", flexDirection: "row"}}>
-                    <ListItemIcon style={{marginLeft:"15px", marginRight:"2px"}}> <InboxIcon /> </ListItemIcon>
-                    <Grid container style={{display:"flex", justifyContent: "space-between"}}>
-                      <Grid item>
-                          <ListItemText primary="Amazone" />
-                      </Grid>
-                      <Grid item style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                          <Button style={{ display: "flex", alignItems: "center", border: "2px solid lightgray", borderRadius: "5px" }}>
-                            <AddCircleOutlineIcon/>
-                            <span style={{ marginLeft: "8px" }}>Suivre</span>
-                          </Button>
-                      </Grid>
-                    </Grid>
+            {/* Quantité et bouton Ajouter au panier */}
+              {/* Taille */}
+              <Grid item style={{marginTop: "20px", marginBottom: "10px"}}>
+              {/* Bouton d'ajout */}
+              <FormControl fullWidth>
+                <InputLabel id="material-label" style={{marginTop: "0px"}}>Votre taille</InputLabel>
+                <Select
+                  labelId="material-label"
+                  id="taille-select"
+                  value={taille}
+                  label="Votre Taille"
+                  onChange={handleChange}
+                >
+                  <MenuItem>32 x 34</MenuItem>
+                  <MenuItem>34 x 36</MenuItem>
+                  <MenuItem>36 x 38</MenuItem>
+                </Select>
+              </FormControl>
+              </Grid>
+              {/* Quantité */}
+              <Grid item style={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
+                <Typography variant="body1" style={{fontWeight: "600"}}>Quantité:</Typography>
+                <Grid item style={{marginTop: "10px", marginBottom: "10px", marginLeft:"15px"}}>
+                  <BaseNumberInput
+                    slots={{
+                      root: StyledInputRoot,
+                      input: StyledInput,
+                      incrementButton: StyledButton,
+                      decrementButton: StyledButton,
+                    }}
+                    slotProps={{
+                      incrementButton: {
+                        children: <AddIcon fontSize="small" />,
+                        className: 'increment',
+                      },
+                      decrementButton: {
+                        children: <RemoveIcon fontSize="small" />,
+                        disabled: quantity === 1,
+                        onClick: () => setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1)),
+                      },
+                    }}
+                    value={quantity}
+                    onChange={(event, value) => setQuantity(value as number)}
+                  />
                 </Grid>
               </Grid>
+              {/* Add Button */}
+              <Grid item style={{marginTop: "0px", marginBottom: "10px", display: "flex", justifyContent: "space-between"}}>
+                <Button variant="contained" color="primary" onClick={handleAddToCart} style={{width: "87%"}}>
+                  Ajouter au panier
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleAddToCart} style={{ width: "10%"}}>
+                  <FavoriteIcon />
+                </Button>
+              </Grid>
+              {/* Menu déroulant Matière et entretien */}
+              <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
+                <ListItemButton onClick={handleMaterialClick}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Matière et entretien" />
+                  {materialOpen ?  <ExpandLess />:  <ExpandMore /> }
+                </ListItemButton>
+                <Collapse in={materialOpen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                      <ListItemText style={{marginLeft: "20px"}} primary="Composition:" />
+                  </List>
+                </Collapse>
+              </Grid>
+
+              {/* Menu déroulant Détails du produit */}
+              <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
+                <ListItemButton onClick={handleProductDetailsClick}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Détails du produit" />
+                  {productDetailsOpen ?  <ExpandLess />:  <ExpandMore /> }
+                </ListItemButton>
+                <Collapse in={productDetailsOpen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                      <ListItemText style={{marginLeft: "20px"}} primary="Taille:" />
+                      <ListItemText style={{marginLeft: "20px"}} primary="Motif/ Couleur:" />
+                      <ListItemText style={{marginLeft: "20px"}} primary="Informations additionnelles:" />
+                      <ListItemText style={{marginLeft: "20px"}} primary="Référence:" />
+                  </List>
+                </Collapse>
+              </Grid>
+
+              {/* Menu déroulant Taille & coupe */}
+              <Grid item style={{marginTop: "0px", marginBottom: "10px"}}>
+                <ListItemButton onClick={handleSizeAndFitClick}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Taille & coupe" />
+                  {sizeAndFitOpen ?  <ExpandLess />:  <ExpandMore /> }
+                </ListItemButton>
+                <Collapse in={sizeAndFitOpen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding style={{}}>
+                      <ListItemText style={{marginLeft: "20px"}} primary="Coupe:" />
+                      <ListItemText style={{marginLeft: "20px"}} primary="Silhouette:" />
+                      <ListItemText style={{marginLeft: "20px"}} primary="Longueur:" />
+                  </List>
+                </Collapse>
+              </Grid>
+              {/* Entreprise de production */}
+              <Grid item style={{marginTop: "20px", marginBottom: "10px", display: "flex", flexDirection: "row"}}>
+                  <ListItemIcon style={{marginLeft:"15px", marginRight:"2px"}}> <InboxIcon /> </ListItemIcon>
+                  <Grid container style={{display:"flex", justifyContent: "space-between"}}>
+                    <Grid item>
+                        <ListItemText primary="Amazone" />
+                    </Grid>
+                    <Grid item style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                        <Button style={{ display: "flex", alignItems: "center", border: "2px solid lightgray", borderRadius: "5px" }}>
+                          <AddCircleOutlineIcon/>
+                          <span style={{ marginLeft: "8px" }}>Suivre</span>
+                        </Button>
+                    </Grid>
+                  </Grid>
+              </Grid>
+            </Grid>
           </Grid>
         </CardContent>
       </Card>
+      <Footer/>
     </div>
   );
 };

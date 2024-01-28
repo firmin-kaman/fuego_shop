@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../../Components/Pages/Navigation/Header';
+import Footer from '../../Components/Pages/Navigation/Footer';
 import Slider from '../../Components/Pages/Home/Slider';
 import ProductList from '../../Components/Pages/Products/ProductList';
 import "../../Components/Css/Home.css";
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
         <Box sx={{marginTop: "22px"}}> <SellIcon/> </Box>
       </Paper>
       <ProductList/>
+      <Footer/>
     </div>
   )
 }

@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  IconButton,
-  Tooltip,
-  Paper,
-  Rating
-} from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, Button, IconButton, Tooltip, Paper, Rating } from '@mui/material';
 import { Favorite, FavoriteBorder, FilterList } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
+// Images of products
 import productImage1 from '../../Images/smartphone.png';
 import productImage2 from '../../Images/laptop.png';
 import productImage3 from '../../Images/headphones.png';
@@ -107,7 +97,7 @@ const ProductList: React.FC = () => {
 
   return (
     // Filter
-    <Paper style={{ padding: 16, margin: '0px auto', maxWidth: 1280, backgroundColor: "#D3D3D3" }}>
+    <Paper style={{ padding: 16, margin: '0px auto', maxWidth: 1280, backgroundColor: "#e3e3e3" }}>
       <div style={{ marginBottom: 16 }}>
         <Tooltip title="Filtrer les produits">
           <IconButton>

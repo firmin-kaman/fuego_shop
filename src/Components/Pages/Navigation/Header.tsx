@@ -23,6 +23,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { useTheme } from '@mui/system';
 
+
 import "../../Css/Header.css"
 
 import { useNavigate } from 'react-router-dom';
@@ -47,11 +48,15 @@ const Search = styled('div')(({ theme }) => ({
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
+  position: 'relative',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  cursor: "pointer",
+  '&:hover': 
+  { 
+    cursor: "pointer",
+  },
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -202,12 +207,12 @@ const Header: React.FC = () => {
             <MenuIcon />
           </IconButton>
           {/* Title */}
-          <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
-            FuegoShop
+          <Typography className='home-name' variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block', } }} onClick={() => handleButtonClick('/')}>
+            <span> FuegoShop </span>
           </Typography>
           {/* SearchBar 1 ( Computer ) */}
-          <Search className='searchBar'>
-            <SearchIconWrapper>
+          <Search className='searchBar' sx={{ width: "100%", display: "flex", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center"}}>
+            <SearchIconWrapper className='search-btn-1'>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} style={{ width: "100%" }} />
@@ -247,7 +252,7 @@ const Header: React.FC = () => {
         </Toolbar>
         <Toolbar className='toolbar'>
           {/* SearchBar 2 ( Mobile/Tablette ) */}
-          <Search style={{ width: "100%", display: "flex", flexDirection: "row-reverse"}}>
+          <Search style={{ width: "100%", display: "flex", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center"}}>
             <SearchIconWrapper className='search-btn-1'>
               <SearchIcon />
             </SearchIconWrapper>

@@ -1,0 +1,24 @@
+.google-btn:hover{
+  background-color: #000;
+}
+.facebook-btn:hover{
+  background-color: #000;
+}
+
+.login {
+  background-image: url('../Images/arrangement-black-friday-shopping-carts-with-copy-space.jpg');
+  /* Autres propriétés de style si nécessaire */
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  /* Permet de couvrir toute la zone avec l'image */
+  background-position: center;
+  /* Centre l'image dans la zone */
+}
+.forgot-pass:hover {
+  color: 1466b8;
+}
+
+.Signin-link:hover{
+  text-decoration: underline !important;
+}

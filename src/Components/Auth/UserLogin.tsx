@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserLogin = () => {
+const UserLogin: React.FC = () => {
   return (
     <div>UserLogin</div>
   )

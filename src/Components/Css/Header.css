@@ -13,3 +13,11 @@
         display: none !important;
     }
 }
+
+.home-name{
+    cursor: pointer;
+}
+
+.search-btn-1:hover {
+    cursor: pointer !important;
+}
