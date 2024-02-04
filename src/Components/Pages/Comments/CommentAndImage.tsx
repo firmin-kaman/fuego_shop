@@ -31,6 +31,7 @@ const CommentAndImage: React.FC<CommentProps> = ({comment}) => {
                 </Grid>
                 <Typography variant="body2">A really comfortable wide fitting safety shoe.Lightweight and ideal for working a seven and three quarter hour shift.</Typography>
             </Box>
+            <br />
             <Box>
                 {/* User-2 */}
                 <Grid sx={{display: "flex", flexDirection:"row"}} >

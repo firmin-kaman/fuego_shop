@@ -9,7 +9,7 @@ const Favorites = () => {
     <div>
       <Header/>
       <Paper elevation={3} style={{ padding: '2px', marginTop: '2px', textAlign: "center" }}>
-        <h1 className="title">All Products ll</h1>
+        <h1 className="title">💖 My Favorites 💖</h1>
       </Paper>
       <FavoriteComponent favoriteProducts={[]} products={[]}/>
       <Footer/>

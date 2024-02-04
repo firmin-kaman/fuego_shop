@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# This is my Shop App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website is the first part of my project to design and build an e-commerce website with its administration dashboard.
 
-Currently, two official plugins are available:
+In the weeks to come, I'll try to complete this project and start its admin dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+At present, we have some of our basic components in place on the frontend.
 
-## Expanding the ESLint configuration
+**Next step**:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `Design of the shopping basket (frontend);`
+- `Design of the sidebar (frontend)`.
 
-- Configure the top-level `parserOptions` property like this:
+### NB: Once the frontend is finished, we'll move on to the backend.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+# Languages and tools used:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Backend: Typescript, Adonis JS, Node Js.
+Frontend: Typescript, React JS; Material UI,  Redux Toolkit.
+Database: PostgreSQL.
+Hosting: Heroku.
+Continuous Integration/Deployment(CI): GitHub Actions.
+RoadMap: Jira
+
+See you soon 👋😊
+
+A faire:
+
+*** Frontend ***
+1. Update the design for: 
+- Footer ;
+- Header (- Search bar, Add user profile and settings...) ;
+- Product page ;
+- Cart Page ;
+- FavoriteComponent ;
+2. 
+
+
+*** Backend ***
+1. Create a new route that will allow us to add products directly from the shopping cart page
+2. Implement a search bar that filters products by name or category.
+3. Implement a "Shopping Cart" component with dynamic data from the server.
+4. Create an authentication system using JSON Web Tokens.
+5. Make sure all routes are protected with middleware checking if there is a token. If not, redirect user to login page.
+
+*** --- Link Back&Front --- ***
+1. Securise my app in first
