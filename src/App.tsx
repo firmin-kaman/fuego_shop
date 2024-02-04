@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Shop/Home';
 import ProductPage from './Pages/Shop/ProductPage';
-import ProductDetailsPage from './Components/Pages/Products/ProductDetails';
-import Favorites from './Components/Pages/Favorites/Favorites';
+import Favorites from './Pages/Shop/Favorites';
+import ProductDetails from './Pages/Shop/ProductDetails';
 import CartPage from './Pages/Shop/CartPage';
 import LoginPage from './Pages/Auth/LoginPage';
 import RegisterPage from './Pages/Auth/RegisterPage';
+import './App.css';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductPage />} />
-        <Route path="/productDetails" element={<ProductDetailsPage />} />
+        <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />

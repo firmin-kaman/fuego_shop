@@ -43,7 +43,7 @@ const products = [
   },
   {
     id: 5,
-    name: 'Vélo electroque',
+    name: 'Vélo electrique',
     description: 'Un vélo élégant avec une autonomie de 4h. parfais pour les petites balades.',
     imageUrl: productImage5,
     price: 368.99,

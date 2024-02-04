@@ -1,30 +1,30 @@
-# This is my Shop App
+# React + TypeScript + Vite
 
-This website is the first part of my project to design and build an e-commerce website with its administration dashboard.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-In the weeks to come, I'll try to complete this project and start its admin dashboard.
+Currently, two official plugins are available:
 
-At present, we have some of our basic components in place on the frontend.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-**Next step**:
+## Expanding the ESLint configuration
 
-- `Design of the shopping basket (frontend);`
-- `Design of the sidebar (frontend)`.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-### NB: Once the frontend is finished, we'll move on to the backend.
+- Configure the top-level `parserOptions` property like this:
 
-# Languages and tools used:
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-Backend: Typescript, Adonis JS, Node Js.
-Frontend: React JS; Material UI
-RoadMap: Jira
-
-See you soon 👋😊
-
-
-A faire:
-
-- Commentaires (Notation des produits)
-- Paiement en ligne
-- Notation des produits
-- Ajouts des prduits aux favoris
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

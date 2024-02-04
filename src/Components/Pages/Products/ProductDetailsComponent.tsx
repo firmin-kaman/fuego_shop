@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Paper, Typography, Card, CardContent, Button, Grid, InputLabel, MenuItem, FormControl, ListItemButton, ListItemIcon, ListItemText, Collapse , List, Rating} from '@mui/material';
+import { Typography, Card, CardContent, Button, Grid, InputLabel, MenuItem, FormControl, ListItemButton, ListItemIcon, ListItemText, Collapse , List, Rating} from '@mui/material';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
-import Header from '../../../Components/Pages/Navigation/Header';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Img1 from "../../Images/store-1920.jpg";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -12,8 +11,8 @@ import { styled } from '@mui/system';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { Unstable_NumberInput as BaseNumberInput } from '@mui/base/Unstable_NumberInput';
-
-import Footer from '../Navigation/Footer';
+import Likes from "../Comments/LikesAndEvaluations.tsx";
+import Comment from "../Comments/CommentAndImage.tsx";
 
 const ProductDetails: React.FC = () => {
     
@@ -21,6 +20,17 @@ const ProductDetails: React.FC = () => {
   const [materialOpen, setMaterialOpen] = React.useState(false);
   const [productDetailsOpen, setProductDetailsOpen] = React.useState(false);
   const [sizeAndFitOpen, setSizeAndFitOpen] = React.useState(false);
+
+
+  // Placeholder pour les commentaires (remplacez cela avec les données réelles de votre backend)
+  const likesData = {
+    rating: 4.2,
+    percentages: [20, 30, 10, 25, 15],
+  };
+  const commentData = {
+    rating: 4.2,
+  };
+
 
 
   const [taille, setTaille] = React.useState('');
@@ -74,12 +84,8 @@ const handleSizeAndFitClick = () => {
 
   return (
     <div className='product_details'>
-      <Header/>
-      <Paper elevation={3} style={{ padding: '2px', marginTop: '2px', textAlign: "center" }}>
-        <h1 className="title">Product details</h1>
-      </Paper>
-
       <Card>
+        {/* Product details */}
         <CardContent style={{backgroundColor: "#DCDCDC"}}>
           <Grid container spacing={3}>
             {/***  Première moitié ***/}
@@ -201,7 +207,7 @@ const handleSizeAndFitClick = () => {
                       },
                     }}
                     value={quantity}
-                    onChange={(event, value) => setQuantity(value as number)}
+                    onChange={(_event, value) => setQuantity(value as number)}
                   />
                 </Grid>
               </Grid>
@@ -284,8 +290,39 @@ const handleSizeAndFitClick = () => {
             </Grid>
           </Grid>
         </CardContent>
+
+        {/* User Comments */}
+        <CardContent style={{backgroundColor: "#DCDCDC"}}>
+          <Grid container spacing={3}sx={{display: "flex", flexDirection: "row", width: "100%"}}>
+            {/***  Première moitié ***/}
+            <Grid sx={{width: "50%"}}>
+              <div style={{display: "flex", }}>
+                <div className='Left' style={{width: "100%", marginTop: "-16.5px"}}>
+                  <Grid >
+                    {/* Stars notation */}
+                    <CardContent sx={{ marginTop: "-15px", marginBottom: "5px", marginLeft: "0px", display: "flex", width: "100%" }}> 
+                      <Likes comment={likesData}/>
+                    </CardContent>
+                  </Grid>
+                </div>
+              </div>
+            </Grid>
+            {/***  Deuxième moitié ***/}
+            <Grid sx={{width: "40%"}}>
+              <div  style={{display: "flex", }}>
+                <div className='right' style={{width: "100%", marginTop: "-16.5px"}}>
+                  <Grid>
+                    {/* Comments */}
+                    <CardContent sx={{ marginTop: "-15px", marginBottom: "5px", display: "flex", width: "100%" }}> 
+                      <Comment comment={commentData}/>
+                    </CardContent>
+                  </Grid>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </CardContent>
       </Card>
-      <Footer/>
     </div>
   );
 };
