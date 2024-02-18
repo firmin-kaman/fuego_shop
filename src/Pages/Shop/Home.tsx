@@ -9,12 +9,13 @@ import SellIcon from '@mui/icons-material/Sell';
 
 
 
+
 const Home: React.FC = () => {
   return (
     <div className='home'>
       <Header/>
       <Slider/>
-      <Paper elevation={3} style={{ padding: '2px', marginTop: '2px', textAlign: "center", display: "flex", flexDirection:"row", justifyContent: "center"}}>
+      <Paper elevation={0} style={{ padding: '2px', marginTop: '2px', textAlign: "center", display: "flex", flexDirection:"row", justifyContent: "center"}}>
         <Box sx={{marginTop: "22px"}}> <SellIcon/> </Box>
         <Box sx={{marginTop: "22px"}}> 😊 </Box>
         <Box> <h1 className="title">Bestsellers of the month</h1> </Box>

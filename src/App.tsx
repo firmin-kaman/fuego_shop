@@ -7,6 +7,8 @@ import ProductDetails from './Pages/Shop/ProductDetails';
 import CartPage from './Pages/Shop/CartPage';
 import LoginPage from './Pages/Auth/LoginPage';
 import RegisterPage from './Pages/Auth/RegisterPage';
+import ProfilePage from './Pages/Shop/ProfilePage';
+import OrdersPage from './Pages/Shop/OrdersPage';
 import './App.css';
 
 const App: React.FC = () => {
@@ -14,8 +16,10 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/orders" element={<OrdersPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/productDetails" element={<ProductDetails />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />

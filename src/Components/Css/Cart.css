@@ -1,4 +1,168 @@
+/* ******---------------------****** */
+/* ******------ COMMAND ------****** */
+/* ******---------------------****** */
+
+
 .btn:hover{
     cursor: pointer;
     text-decoration: underline !important;
+}
+
+.CartPage{
+    padding: 2px;
+    margin-top: 2px;
+    text-align: center;
+}
+.CartPage h1{
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+/* Cart Div */
+.Cart {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Cart container, Product Cart and Available Card*/
+.CartContainer {
+    margin-top: 16px !important;
+    width: 70% !important;
+    margin-left: 15px !important;
+    margin-right: 10px !important;
+}
+.ProductCart {
+    margin-top: 16px !important;
+    width: 98% !important;
+    margin-left: 10px !important;
+    box-shadow: none !important;
+}
+.AvailableCard {
+    margin-top: 16px !important;
+    width: 98% !important;
+    margin-left: 10px !important;
+    margin-bottom: 20px;
+    box-shadow: none !important;
+
+}
+
+
+/* Product Cart [TableHead] --> Your Cart (Title) */
+.YourCartHeader {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.YourCart {
+    font-weight: 500 ;
+    margin-bottom: 10px ;
+    margin-left: 15px ;
+}
+.SelectCart {
+    color: #137034 ;
+    text-decoration: none;
+    margin-top: -10px;
+    margin-left: 15px;
+    width: 135px;
+}
+.SelectCart:hover {
+    text-decoration: underline;
+}
+
+/* Product Cart [TableBody] --> Card, Typography, */
+.CartContent {
+    display: flex;
+    align-items: center;
+    box-shadow: none !important;
+}
+.ProductName {
+    display: flex;
+    justify-content: space-between;
+}
+.ProductQuantity {
+    display: flex;
+}
+.QuantityForm {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    text-align: center;
+    min-width: 120px !important;
+    margin-top: 25px !important;
+}
+.QuantityFormSelect {
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 6px !important;
+}
+.QuantityButton {
+    color: #137034;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.SpanDivider {
+    color: #137034;
+    margin-left: 10px;
+    margin-top: 13px;
+}
+.CartImage {
+    width: 100% !important;
+    object-fit: contain !important;
+    background-size: 10px !important;
+}
+
+/* Available Cart [TableHead] --> We Agree (title) */
+.WeAgreeHeader {
+    display: flex;
+    flex-direction: column;
+}
+.WeAgree {
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+/* Available Cart [TableBody] -->  */
+.WeAgreeContent {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+
+/* ******-----------------****** */
+/* ******------ Pay ------****** */
+/* ******-----------------****** */
+
+
+/* Make Command [Paper] -->  */
+.MakeCommand {
+    margin-top: 16px !important;
+    padding: 16px;
+    width: 25% !important;
+    height: 300px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px !important;
+}
+.MakeCommandContainer {
+    margin-bottom: 8px !important;
+    margin-top: 10px !important;
+    text-align: left;
+    width: 90% !important;
+}
+.MakeCommandTitle {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 20px !important;
+}
+.MakeCommandDetails {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 10px !important;
+}
+.MakeCommandButton {
+    width: 90% !important;
+    font-weight: 550 !important;
 }

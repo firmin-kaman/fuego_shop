@@ -9,7 +9,7 @@ body {
 }
 
 body {
-    background: #eee;
+    background: #e3e3e3;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
@@ -221,13 +221,14 @@ body {
 
 /***** Button Shop Start *****/
 
-.shop-btn {
+.shop-btn-new {
     /* Ajoutez ici le style de votre bouton, par exemple : */
     padding: 0px 40px;
     font-size: 16px;
     background-color: #0d82ff;
     color: #fff;
-    transition: all 0.2s ease;
+    /* transition: all 0.2s ease; */
+    transition: transform 0.3s ease, border-width 0.3s ease;
     border: none;
     border-radius: 23px;
     min-width: 16px;
@@ -240,11 +241,9 @@ body {
     position: relative;
 }
 
-.shop-btn:hover {
-    animation: none;
-    background-color: #032447;
-    transform: scale(1.25);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.shop-btn-new:hover {
+    transform: scale(1.05);
+    border-color: #fff;
     cursor: pointer;
 }
 
@@ -268,23 +267,35 @@ body {
 @keyframes buttonShow {
 
     0%{
-        filter: brightness(65%);
+        filter: brightness(70%);
+    }
+    15%{
+        filter: brightness(80%);
     }
 
     25% {
-        filter: brightness(75%);
+        filter: brightness(85%);
+    }
+    35% {
+        filter: brightness(90%);
     }
 
     50% {
         filter: brightness(100%);
     }
 
+    65% {
+        filter: brightness(90%);
+    }
     75% {
+        filter: brightness(85%);
+    }
+    85% {
         filter: brightness(80%);
     }
 
     100% {
-        filter: brightness(65%);
+        filter: brightness(70%);
     }
     
 }

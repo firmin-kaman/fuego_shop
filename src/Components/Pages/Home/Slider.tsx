@@ -1,5 +1,5 @@
 // Import des composants
-import React from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay, EffectFade } from 'swiper/modules';
 import SwiperCore from 'swiper';
@@ -44,6 +44,13 @@ const Slider: React.FC = () => {
   };
   //--- Navigation Button End ---//
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Css du bouton au survol
+  const buttonStyle: CSSProperties = {
+    transition: 'transform 0.3s ease', // Ajout de transition pour l'effet de survol
+    transform: isHovered ? 'scale(1.1)' : 'scale(1)', // Appliquer l'effet de survol si isHovered est vrai
+  };
 
    return (
     <>
@@ -61,175 +68,26 @@ const Slider: React.FC = () => {
               speed={600}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <img src={Img1} alt="Slide 1" className={`img`} />
-                <div className="Text-container Text-animed-1">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
+              {[Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img12, Img13, Img14].map((img, index) => (
+                <SwiperSlide key={index}>
+                  <img src={img} alt={`Slide ${index + 1}`} className={`img`} />
+                  <div className={`Text-container Text-animed-${index + 1}`}>
+                    <div className='Text-container-sub'>
+                      <h2 className='shop-name-1'>Top Boy</h2>
+                      <h1 className='shop-name-2'>TED BISHOP</h1>
+                    </div>
+                    <button 
+                      className='shop-btn-new'
+                      style={buttonStyle}
+                      onMouseEnter={() => setIsHovered(true)} // Définir isHovered sur true au survol
+                      onMouseLeave={() => setIsHovered(false)} // Définir isHovered sur false lorsque le curseur quitte le bouton
+                      onClick={() => handleButtonClick('/products')}
+                    >
+                      <span>Shop Now</span>
+                    </button>
                   </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img2} alt="Slide 2" className={`img`} />
-                <div className="Text-container Text-animed-2">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img3} alt="Slide 3" className={`img`} />
-                <div className="Text-container Text-animed-3">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img4} alt="Slide 4" className={`img`} />
-                <div className="Text-container Text-animed-4">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img5} alt="Slide 5" className={`img`} />
-                <div className="Text-container Text-animed-5">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img6} alt="Slide 6" className={`img`} />
-                <div className="Text-container Text-animed-6">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img7} alt="Slide 7" className={`img`} />
-                <div className="Text-container Text-animed-7">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img8} alt="Slide 8" className={`img`} />
-                <div className="Text-container Text-animed-8">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img9} alt="Slide 9" className={`img`} />
-                <div className="Text-container Text-animed-9">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img10} alt="Slide 10" className={`img`} />
-                <div className="Text-container Text-animed-10">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img11} alt="Slide 11" className={`img`} />
-                <div className="Text-container Text-animed-11">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img12} alt="Slide 12" className={`img`} />
-                <div className="Text-container Text-animed-12">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img13} alt="Slide 13" className={`img`} />
-                <div className="Text-container Text-animed-13">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Img14} alt="Slide 14" className={`img`} />
-                <div className="Text-container Text-animed-14">
-                  <div className='Text-container-sub'>
-                    <h2 className='shop-name-1'>Top Boy</h2>
-                    <h1 className='shop-name-2'>TED BISHOP</h1>
-                  </div>
-                  <button className='shop-btn'>
-                    <span onClick={() => handleButtonClick('/products')}>Shop Now</span>
-                  </button>
-                </div>
-              </SwiperSlide>
-              
+                </SwiperSlide>
+              ))}
             </Swiper>
         </div>
       </div>

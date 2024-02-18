@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Typography, Card, CardContent, Button, Grid, InputLabel, MenuItem, FormControl, ListItemButton, ListItemIcon, ListItemText, Collapse , List, Rating} from '@mui/material';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Img1 from "../../Images/store-1920.jpg";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { ExpandLess, ExpandMore} from '@mui/icons-material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -13,6 +12,16 @@ import AddIcon from '@mui/icons-material/Add';
 import { Unstable_NumberInput as BaseNumberInput } from '@mui/base/Unstable_NumberInput';
 import Likes from "../Comments/LikesAndEvaluations.tsx";
 import Comment from "../Comments/CommentAndImage.tsx";
+
+
+// My Images
+import Img1 from "../../Images/Products/foot-Jordan-new-7.jpg";
+import Img2 from "../../Images/Products/foot-Jordan-new-6.jpg";
+import Img3 from "../../Images/Products/foot-Jordan-new-4.jpg";
+import Img4 from "../../Images/Products/foot-Jordan-new-3.jpg";
+import Img5 from "../../Images/Products/foot-Jordan-new-2.jpg";
+import Img6 from "../../Images/Products/foot-Jordan-new-5.jpg";
+
 
 const ProductDetails: React.FC = () => {
     
@@ -97,35 +106,35 @@ const handleSizeAndFitClick = () => {
                   <Button className='SlideUp'></Button>
                   <Grid>
                     <img
-                      src= {Img1}
+                      src= {Img2}
                       alt={productDetails.name}
                       style={{ width: '90%', height: 'auto' }}
                     />
                   </Grid>
                   <Grid>
                     <img
-                      src= {Img1}
+                      src= {Img3}
                       alt={productDetails.name}
                       style={{ width: '90%', height: 'auto' }}
                     />
                   </Grid>
                   <Grid>
                     <img
-                      src= {Img1}
+                      src= {Img4}
                       alt={productDetails.name}
                       style={{ width: '90%', height: 'auto' }}
                     />
                   </Grid>
                   <Grid>
                     <img
-                      src= {Img1}
+                      src= {Img5}
                       alt={productDetails.name}
                       style={{ width: '90%', height: 'auto' }}
                     />
                   </Grid>
                   <Grid>
                     <img
-                      src= {Img1}
+                      src= {Img6}
                       alt={productDetails.name}
                       style={{ width: '90%', height: 'auto' }}
                     />

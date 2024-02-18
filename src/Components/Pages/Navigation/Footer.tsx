@@ -11,12 +11,11 @@ import {
   Link,
   Paper,
 } from '@material-ui/core';
-import "../../Css/Footer.css"
+import "../../Css/Footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faLinkedin, faPinterest } from '@fortawesome/free-brands-svg-icons';
 
-const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   backgroundColor: '#fbfbfd',
-  // },
+const useStyles = makeStyles(() => ({
   footerTop: {
     padding: '120px 0px 270px',
     position: 'relative',
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   companyWidget: {
     marginBottom: '20px',
-    backgroundColor: "#eee"
+    backgroundColor: "#e3e3e3"
   },
   subscribeForm: {
     display: 'flex',
@@ -106,10 +105,10 @@ const Footer: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <footer /*className={classes.root}*/ >
+    <footer>
       <div className={classes.footerTop}>
         <Container>
-          <Grid container spacing={4} >
+          <Grid container spacing={4}>
             <Grid item md={3}>
               <Paper elevation={0} className={`${classes.companyWidget} wow fadeInLeft`} data-wow-delay="0.2s" >
                 <Typography variant="h6" className="f-title f_600 t_color f_size_18">
@@ -188,10 +187,18 @@ const Footer: React.FC = () => {
                   Team Solutions
                 </Typography>
                 <div className={classes.socialIcon}>
-                  <Link href="#" className="fab fa-facebook"></Link>
-                  <Link href="#" className="fab fa-twitter"></Link>
-                  <Link href="#" className="fab fa-linkedin"></Link>
-                  <Link href="#" className="fab fa-pinterest"></Link>
+                    <Link href="#" className="fab fa-facebook">
+                      <FontAwesomeIcon icon={faFacebook} />
+                    </Link>
+                    <Link href="#" className="fab fa-twitter">
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </Link>
+                    <Link href="#" className="fab fa-linkedin">
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </Link>
+                    <Link href="#" className="fab fa-pinterest">
+                      <FontAwesomeIcon icon={faPinterest} />
+                    </Link>
                 </div>
               </Paper>
             </Grid>

@@ -10,7 +10,7 @@ const ProductDetails: React.FC = () => {
   return (
     <div className='product_details'>
       <Header/>
-      <Paper elevation={3} style={{ padding: '2px', marginTop: '2px', textAlign: "center" }}>
+      <Paper elevation={0} style={{ padding: '2px', marginTop: '2px', textAlign: "center" }}>
         <h1 className="title">Product details</h1>
       </Paper>
       <ProductDetailsComponent/>

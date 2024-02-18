@@ -19,8 +19,10 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import GradingIcon from '@mui/icons-material/Grading';
+// import ListAltIcon from '@mui/icons-material/ListAlt';
 import { useTheme } from '@mui/system';
 
 
@@ -97,6 +99,10 @@ const Header: React.FC = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  // const handleProfileNavigation = () => {
+  //   navigate('/profile'); // Supposant que "/profile" est le chemin de votre page de profil
+  // };
+
   //--- Navigation Button Start ---//
   const navigate = useNavigate();
 
@@ -135,8 +141,13 @@ const Header: React.FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <ManageAccountsIcon /></Badge>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <SettingsIcon /></Badge> Settings</MenuItem>
+      
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/profile'); }}> 
+        <Badge style={{ marginRight: "05px" }}> <ManageAccountsIcon /></Badge>My account
+      </MenuItem>
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/orders'); }}>
+        <Badge style={{ marginRight: "05px" }}> <GradingIcon /></Badge> Orders
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}> <Badge style={{ marginRight: "05px" }}> <LogoutIcon /></Badge> Log out</MenuItem>
     </Menu>
   );
